@@ -1,18 +1,8 @@
-# NextAuth.js Example
-
-[next-auth-example.now.sh](https://next-auth-example.now.sh)
+# NextAuth.js with Mysql Example
 
 ## About this project
 
 This is an example of how to use [NextAuth.js](https://next-auth.js.org) library to add authentication to a [Next.js](https://nextjs.org) application.
-
-## About NextAuth.js
-
-NextAuth.js is an easy to implement, full-stack (client/server) open source authentication library designed for [Next.js](https://nextjs.org) and [Serverless](https://now.sh).
-
-Go to [next-auth.js.org](https://next-auth.js.org) for more information and documentation.
-
-*NextAuth.js is not associated with Vercel or Next.js.*
 
 ## Getting started
 
