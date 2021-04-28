@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Entry from './entry';
 
 function Entries({ entries }) {
@@ -10,10 +11,18 @@ function Entries({ entries }) {
           </div>
         ))}
       </div>
-    )
-  } else {
-    return null
+    );
   }
+  return null;
 }
 
-export default Entries
+Entries.propTypes = {
+  // An array of object taking on a particular shape
+  entries: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
+export default Entries;

@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router'
-import { useEntry } from '../../lib/swr-hooks'
-import Container from '../../components/container'
+import { useRouter } from 'next/router';
+import { Container } from 'react-bootstrap';
+import { useEntry } from '../../lib/swr-hooks';
 
 export default function EditEntryPage() {
-  const router = useRouter()
-  const id = router.query.id?.toString()
-  const { data } = useEntry(id)
+  const router = useRouter();
+  const id = router.query.id?.toString();
+  const { data } = useEntry(id);
 
   if (data) {
     return (
@@ -15,15 +15,14 @@ export default function EditEntryPage() {
           <p>{data.content}</p>
         </Container>
       </>
-    )
-  } else {
-    return (
-      <>
-        <Container>
-          <h1 className="font-bold text-3xl my-2">...</h1>
-          <p>...</p>
-        </Container>
-      </>
-    )
+    );
   }
+  return (
+    <>
+      <Container>
+        <h1 className="font-bold text-3xl my-2">...</h1>
+        <p>...</p>
+      </Container>
+    </>
+  );
 }

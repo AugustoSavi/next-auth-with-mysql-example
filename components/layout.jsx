@@ -1,13 +1,20 @@
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from './Header';
+import Footer from './Footer';
+// import PropTypes from 'prop-types';
 
-export default function Layout ({children}) {
+// eslint-disable-next-line react/prop-types
+export default function Layout({ children }) {
   return (
     <>
-      <Header/>
+      <Header />
       <main>
         {children}
       </main>
+      <Footer />
     </>
-  )
+  );
 }
+
+// Layout.propTypes = {
+//   children: PropTypes.element.isRequired,
+// };

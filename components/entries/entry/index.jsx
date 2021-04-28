@@ -1,38 +1,34 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { mutate } from 'swr';
-
-import ButtonLink from '../../button-link';
-import Button from '../../button';
+import { Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 function Entry({ id, title, content }) {
   const [deleting, setDeleting] = useState(false);
 
   async function deleteEntry() {
     setDeleting(true);
-    let res = await fetch(`/api/delete-entry?id=${id}`, { method: 'DELETE' });
-    let json = await res.json();
+    const res = await fetch(`/api/delete-entry?id=${id}`, { method: 'DELETE' });
+    const json = await res.json();
     if (!res.ok) throw Error(json.message);
     mutate('/api/get-entries');
     setDeleting(false);
   }
+
   return (
     <div>
       <div className="flex items-center">
         <Link href={`/entry/${id}`}>
-          <a className="font-bold py-2">{title}</a>
+          <p>{title}</p>
         </Link>
         <div className="flex ml-4">
-          <ButtonLink
-            href={`/entry/edit/${id}?title=${title}&content=${content}`}
-            className="h-5 py-0 mx-1"
-          >
+          <Button href={`/entry/edit/${id}?title=${title}&content=${content}`}>
             Edit
-          </ButtonLink>
+          </Button>
           <Button
             disabled={deleting}
             onClick={deleteEntry}
-            className="h-5 py-0 mx-1"
           >
             {deleting ? 'Deleting ...' : 'Delete'}
           </Button>
@@ -40,7 +36,13 @@ function Entry({ id, title, content }) {
       </div>
       <p>{content}</p>
     </div>
-  )
+  );
 }
 
-export default Entry
+Entry.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
+
+export default Entry;

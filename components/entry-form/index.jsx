@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import Router from 'next/router'
-
-import Button from '../../components/button'
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useState } from 'react';
+import Router from 'next/router';
+import { Button } from 'react-bootstrap';
 
 export default function EntryForm() {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  const [submitting, setSubmitting] = useState(false)
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   async function submitHandler(e) {
-    setSubmitting(true)
-    e.preventDefault()
+    setSubmitting(true);
+    e.preventDefault();
     try {
       const res = await fetch('/api/create-entry', {
         method: 'POST',
@@ -21,13 +21,13 @@ export default function EntryForm() {
           title,
           content,
         }),
-      })
-      setSubmitting(false)
-      const json = await res.json()
-      if (!res.ok) throw Error(json.message)
-      Router.push('/')
-    } catch (e) {
-      throw Error(e.message)
+      });
+      setSubmitting(false);
+      const json = await res.json();
+      if (!res.ok) throw Error(json.message);
+      Router.push('/');
+    } catch (error) {
+      throw Error(error.message);
     }
   }
 
@@ -58,9 +58,9 @@ export default function EntryForm() {
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <Button disabled={submitting} type="submit">
+      <Button>
         {submitting ? 'Creating ...' : 'Create'}
       </Button>
     </form>
-  )
+  );
 }

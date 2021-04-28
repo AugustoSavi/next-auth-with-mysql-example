@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react'
-import Router, { useRouter } from 'next/router'
-
-import Button from '../button'
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useState, useEffect } from 'react';
+import Router, { useRouter } from 'next/router';
+import { Button } from 'react-bootstrap';
 
 export default function EntryForm() {
-  const [_title, setTitle] = useState('')
-  const [_content, setContent] = useState('')
-  const [submitting, setSubmitting] = useState(false)
-  const router = useRouter()
-  const { id, title, content } = router.query
+  const [_title, setTitle] = useState('');
+  const [_content, setContent] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const router = useRouter();
+  const { id, title, content } = router.query;
 
   useEffect(() => {
     if (typeof title === 'string') {
-      setTitle(title)
+      setTitle(title);
     }
     if (typeof content === 'string') {
-      setContent(content)
+      setContent(content);
     }
-  }, [title, content])
+  }, [title, content]);
 
   async function submitHandler(e) {
-    e.preventDefault()
-    setSubmitting(true)
+    e.preventDefault();
+    setSubmitting(true);
     try {
       const res = await fetch('/api/edit-entry', {
         method: 'PATCH',
@@ -33,13 +33,13 @@ export default function EntryForm() {
           title: _title,
           content: _content,
         }),
-      })
-      const json = await res.json()
-      setSubmitting(false)
-      if (!res.ok) throw Error(json.message)
-      Router.push('/')
-    } catch (e) {
-      throw Error(e.message)
+      });
+      const json = await res.json();
+      setSubmitting(false);
+      if (!res.ok) throw Error(json.message);
+      Router.push('/');
+    } catch (error) {
+      throw Error(error.message);
     }
   }
 
@@ -70,9 +70,9 @@ export default function EntryForm() {
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <Button disabled={submitting} type="submit">
+      <Button>
         {submitting ? 'Saving ...' : 'Save'}
       </Button>
     </form>
-  )
+  );
 }

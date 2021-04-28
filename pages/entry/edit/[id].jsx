@@ -1,5 +1,5 @@
-import Container from '../../../components/container'
-import EditEntryForm from '../../../components/edit-entry-form'
+import { Container } from 'react-bootstrap';
+import EditEntryForm from '../../../components/edit-entry-form';
 
 export default function EditEntryPage() {
   return (
@@ -8,5 +8,5 @@ export default function EditEntryPage() {
         <EditEntryForm />
       </Container>
     </>
-  )
+  );
 }
