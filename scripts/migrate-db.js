@@ -1,9 +1,8 @@
-const path = require('path')
-const envPath = path.resolve(process.cwd(), '.env.local')
-require('dotenv').config({ path: envPath })
+const path = require('path');
 
-//const mysql = require('serverless-mysql')
-const mysql = require('mysql2')
+const envPath = path.resolve(process.cwd(), '.env.local');
+require('dotenv').config({ path: envPath });
+const mysql = require('mysql2');
 
 // const db = mysql({
 //   config: {
@@ -20,9 +19,8 @@ const connection = mysql.createConnection({
   user: process.env.MYSQL_USERNAME,
   password: process.env.MYSQL_PASSWORD,
   port: process.env.MYSQL_PORT,
-  database: process.env.MYSQL_DATABASE
+  database: process.env.MYSQL_DATABASE,
 });
-
 
 // Create "entries" table if doesn't exist
 function migrate() {
@@ -43,9 +41,9 @@ function migrate() {
     console.log('migration ran successfully');
     connection.end();
   } catch (e) {
-    console.error('could not run migration, double check your credentials.')
-    process.exit(1)
+    console.error('could not run migration, double check your credentials.');
+    process.exit(1);
   }
 }
 
-migrate()
+migrate();

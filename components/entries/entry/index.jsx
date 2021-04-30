@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { mutate } from 'swr';
-import { Button } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 function Entry({ id, title, content }) {
@@ -18,23 +18,24 @@ function Entry({ id, title, content }) {
 
   return (
     <div>
-      <div className="flex items-center">
+      <Row className="p-4">
         <Link href={`/entry/${id}`}>
           <p>{title}</p>
         </Link>
-        <div className="flex ml-4">
-          <Button href={`/entry/edit/${id}?title=${title}&content=${content}`}>
-            Edit
-          </Button>
-          <Button
-            disabled={deleting}
-            onClick={deleteEntry}
-          >
-            {deleting ? 'Deleting ...' : 'Delete'}
-          </Button>
-        </div>
-      </div>
-      <p>{content}</p>
+
+        <Button href={`/entry/edit/${id}?title=${title}&content=${content}`} className="ml-4">
+          &#128221; Edit
+        </Button>
+        <Button
+          disabled={deleting}
+          onClick={deleteEntry}
+          className="ml-2"
+        >
+          &#128465;
+          {' '}
+          {deleting ? 'Deleting ...' : 'Delete'}
+        </Button>
+      </Row>
     </div>
   );
 }
