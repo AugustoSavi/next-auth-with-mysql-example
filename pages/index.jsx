@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 export default function Page() {
   return (
     <Layout>
-      <Container>
+      <Container className="mt-4">
         <h1>NextAuth.js Example</h1>
         <p>
           This is an example site to demonstrate how to use

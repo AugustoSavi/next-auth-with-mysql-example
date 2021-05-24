@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
+import Image from 'next/image';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import styles from './header.module.css';
@@ -18,24 +19,42 @@ export default function Header() {
       </noscript>
 
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand><Link href="/"><a className={styles.link}>Vapo</a></Link></Navbar.Brand>
+
         <Nav className="mr-auto">
-          <Link href="/"><a className={styles.link}>Home</a></Link>
+
+          <Link href="/">
+            <Image
+              src="/logoUnesc.png"
+              alt="Logo"
+              width={50}
+              height={50}
+            />
+          </Link>
+
+          <Nav.Link>
+            <Link href="/">
+              <a className={styles.link}>Home</a>
+            </Link>
+          </Nav.Link>
+
           <Nav.Link>
             <Link href="/entries">
               <a className={styles.link}>Entries</a>
             </Link>
           </Nav.Link>
+
           <Nav.Link>
             <Link href="/server">
               <a className={styles.link}>Server</a>
             </Link>
           </Nav.Link>
+
           <Nav.Link>
             <Link href="/protected">
               <a className={styles.link}>Protected</a>
             </Link>
           </Nav.Link>
+
           <Nav.Link>
             <Link href="/api-example">
               <a className={styles.link}>Api</a>
