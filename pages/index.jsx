@@ -5,13 +5,14 @@ export default function Page() {
   return (
     <Layout>
       <Container className="mt-4">
-        <h1>NextAuth.js Example</h1>
+        <h1>Bem vindo</h1>
         <p>
-          This is an example site to demonstrate how to use
-          {' '}
-          <a href="https://next-auth.js.org">NextAuth.js</a>
-          {' '}
-          for authentication.
+          Esse site foi desenvolvido com o intuito de facilitar sua vida usuário.
+          <br />
+          Não guarde mais seus trabalho em algum lugar que fique de difícil acesso,
+          <br />
+          crie e edite seus trabalhos pelo nosso site e deixe ele de fácil acesso para
+          a universidade e para quem importa.
         </p>
       </Container>
     </Layout>
