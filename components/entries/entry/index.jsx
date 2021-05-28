@@ -27,7 +27,7 @@ function Entry({ id, title, content }) {
           &#128221; Edit
         </Button>
         <Button
-          disabled={deleting}
+          disabled
           onClick={deleteEntry}
           className="ml-2"
         >

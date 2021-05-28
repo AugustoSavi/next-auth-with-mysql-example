@@ -39,27 +39,27 @@ export default function Header() {
 
           <Nav.Link>
             <Link href="/entries">
-              <a className={styles.link}>Entries</a>
+              <a className={styles.link}>Projetos</a>
             </Link>
           </Nav.Link>
 
-          <Nav.Link>
+          {/* <Nav.Link>
             <Link href="/server">
               <a className={styles.link}>Server</a>
             </Link>
-          </Nav.Link>
+          </Nav.Link> */}
 
           <Nav.Link>
             <Link href="/protected">
-              <a className={styles.link}>Protected</a>
+              <a className={styles.link}>admin</a>
             </Link>
           </Nav.Link>
 
-          <Nav.Link>
+          {/* <Nav.Link>
             <Link href="/api-example">
               <a className={styles.link}>Api</a>
             </Link>
-          </Nav.Link>
+          </Nav.Link> */}
         </Nav>
 
         <Nav>
