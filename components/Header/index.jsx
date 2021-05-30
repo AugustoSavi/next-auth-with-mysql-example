@@ -51,7 +51,7 @@ export default function Header() {
 
           <Nav.Link>
             <Link href="/protected">
-              <a className={styles.link}>admin</a>
+              <a className={styles.link}>administrativo</a>
             </Link>
           </Nav.Link>
 
