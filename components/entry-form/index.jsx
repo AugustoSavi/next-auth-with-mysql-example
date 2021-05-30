@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Router from 'next/router';
 import { Button } from 'react-bootstrap';
+import Layout from '../layout';
 
 export default function EntryForm() {
   const [title, setTitle] = useState('');
@@ -32,35 +33,37 @@ export default function EntryForm() {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="my-4">
-        <label htmlFor="title">
-          <h3 className="font-bold">Title</h3>
-        </label>
-        <input
-          id="title"
-          className="shadow border rounded w-full"
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-      <div className="my-4">
-        <label htmlFor="content">
-          <h3 className="font-bold">Content</h3>
-        </label>
-        <textarea
-          className="shadow border resize-none focus:shadow-outline w-full h-48"
-          id="content"
-          name="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </div>
-      <Button>
-        {submitting ? 'Creating ...' : 'Create'}
-      </Button>
-    </form>
+    <Layout>
+      <form onSubmit={submitHandler}>
+        <div className="my-4">
+          <label htmlFor="title">
+            <h3 className="font-bold">Title</h3>
+          </label>
+          <input
+            id="title"
+            className="shadow border rounded w-full"
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="my-4">
+          <label htmlFor="content">
+            <h3 className="font-bold">Content</h3>
+          </label>
+          <textarea
+            className="shadow border resize-none focus:shadow-outline w-full h-48"
+            id="content"
+            name="content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
+        <Button onClick={submitHandler}>
+          {submitting ? 'Creating ...' : 'Create'}
+        </Button>
+      </form>
+    </Layout>
   );
 }
