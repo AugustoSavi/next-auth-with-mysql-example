@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import Layout from '../layout';
 
 export default function EntryForm() {
@@ -45,8 +45,8 @@ export default function EntryForm() {
   }
 
   return (
-    <>
-      <Layout>
+    <Layout>
+      <Container>
         <div>
           <form onSubmit={submitHandler}>
             <div className="mb-3">
@@ -129,7 +129,7 @@ export default function EntryForm() {
             </Button>
           </form>
         </div>
-      </Layout>
-    </>
+      </Container>
+    </Layout>
   );
 }
