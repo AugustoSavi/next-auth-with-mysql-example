@@ -10,7 +10,7 @@ export default function Page() {
     <Layout>
       <Container>
         <Button href="/new" className="mt-4" variant="success">
-          &#10133; Novo
+          &#10133; Novo Projeto
         </Button>
         {isLoading && (
           <>
