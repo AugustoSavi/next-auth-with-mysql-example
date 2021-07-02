@@ -49,12 +49,13 @@ export default function Header() {
             </Link>
           </Nav.Link> */}
 
-          <Nav.Link>
-            <Link href="/protected">
-              <a className={styles.link}>administrativo</a>
-            </Link>
-          </Nav.Link>
-
+          {session && (
+            <Nav.Link>
+              <Link href="/protected">
+                <a className={styles.link}>Relatório</a>
+              </Link>
+            </Nav.Link>
+          )}
           {/* <Nav.Link>
             <Link href="/api-example">
               <a className={styles.link}>Api</a>
@@ -65,39 +66,39 @@ export default function Header() {
         <Nav>
           <Nav.Link>
             {!session && (
-            <>
-              <Button
-                variant="primary"
-                href="/api/auth/signin"
-                onClick={(e) => {
-                  e.preventDefault();
-                  signIn();
-                }}
-              >
-                Sign in
-              </Button>
-            </>
+              <>
+                <Button
+                  variant="primary"
+                  href="/api/auth/signin"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signIn();
+                  }}
+                >
+                  Sign in
+                </Button>
+              </>
             )}
 
             {session && (
-            <>
-              {session.user.image
-            && <span style={{ backgroundImage: `url(${session.user.image})` }} className={styles.avatar} />}
+              <>
+                {session.user.image
+                  && <span style={{ backgroundImage: `url(${session.user.image})` }} className={styles.avatar} />}
 
-              <small className={styles.email}>{session.user.email || session.user.name}</small>
+                <small className={styles.email}>{session.user.email || session.user.name}</small>
 
-              <Button
-                variant="danger"
-                href="/api/auth/signout"
-                className={styles.button}
-                onClick={(e) => {
-                  e.preventDefault();
-                  signOut();
-                }}
-              >
-                Sign out
-              </Button>
-            </>
+                <Button
+                  variant="danger"
+                  href="/api/auth/signout"
+                  className={styles.button}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signOut();
+                  }}
+                >
+                  Sign out
+                </Button>
+              </>
             )}
           </Nav.Link>
         </Nav>

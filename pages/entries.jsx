@@ -7,22 +7,20 @@ export default function Page() {
   const { entries, isLoading } = useEntries();
 
   return (
-    <>
-      <Layout>
-        <Container>
-          <Button href="/new" className="mt-4" variant="success">
-            &#10133; Novo
-          </Button>
-          { isLoading && (
+    <Layout>
+      <Container>
+        <Button href="/new" className="mt-4" variant="success">
+          &#10133; Novo
+        </Button>
+        {isLoading && (
           <>
             {' '}
             <Spinner animation="border" variant="primary" />
             {' '}
           </>
-          ) }
-          <Entries entries={entries} />
-        </Container>
-      </Layout>
-    </>
+        )}
+        <Entries entries={entries} />
+      </Container>
+    </Layout>
   );
 }
